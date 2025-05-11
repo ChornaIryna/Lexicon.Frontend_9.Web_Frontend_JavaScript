@@ -21,13 +21,23 @@
   padding: 0.25rem 0.5rem;
   margin-left: 0.5rem;
   outline: none;
+  border-radius: 0.3rem;
 }
 
 .delete-btn:hover,
 .delete-btn:focus {
-  color: #c82333;
+  background-color: #f4f3f3;
+  color: #ff273d;
+  border: 1px solid #ff273d;
 }
 
-.empty {
-  display: none;
+footer {
+  text-align: center;
+  margin-top: 2em;
+  padding: 1em 0;
+  background-color: #333;
+  color: white;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }

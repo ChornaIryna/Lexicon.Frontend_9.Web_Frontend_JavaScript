@@ -4,7 +4,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const shoppingList = document.getElementById('shoppingList');
     const emptyListMessage = document.getElementById('emptyListMessage');
 
-    let items = [];
+    let items = loadItems();
+
+    function saveItems() {
+        localStorage.setItem('shoppingListItems', JSON.stringify(items));
+    }
+
+    function loadItems() {
+        const storedItems = localStorage.getItem('shoppingListItems');
+        return storedItems ? JSON.parse(storedItems) : [];
+    }
 
     function toggleEmptyMessage() {
         if (items.length === 0) {
@@ -26,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
             renderList();
             newItemInput.value = '';
             toggleEmptyMessage();
+            saveItems();
         }
     }
 
@@ -45,7 +55,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const deleteButton = document.createElement('button');
             deleteButton.classList.add('delete-btn');
             deleteButton.setAttribute('aria-label', `Ta bort ${item.name} från listan`);
-            deleteButton.textContent = 'X';
+            const deleteIcon = document.createElement('i');
+            deleteIcon.classList.add('bi', 'bi-trash-fill');
+            deleteButton.appendChild(deleteIcon);
+            deleteButton.setAttribute('type', 'button');
             deleteButton.addEventListener('click', (event) => {
                 event.stopPropagation();
                 removeItem(item.id);
@@ -65,12 +78,14 @@ document.addEventListener('DOMContentLoaded', () => {
             item.id === itemId ? { ...item, purchased: !item.purchased } : item
         );
         renderList();
+        saveItems();
     }
 
     function removeItem(itemId) {
         items = items.filter(item => item.id !== itemId);
         renderList();
         toggleEmptyMessage();
+        saveItems();
     }
 
     addItemBtn.addEventListener('click', addItem);
