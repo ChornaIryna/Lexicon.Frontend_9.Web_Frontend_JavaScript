@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bish-Bosh 1.0</title>
+  </head>
+  <body>
+    <script>
+      const bishBosh = (n, bish, bosh) => {
+        let result = [];
+        for (let i = 1; i <= n; i++) {
+          if (i % bish === 0 && i % bosh === 0) {
+            result.push("Bish-Bosh");
+          } else if (i % bish === 0) {
+            result.push("Bish");
+          } else if (i % bosh === 0) {
+            result.push("Bosh");
+          } else {
+            result.push(i);
+          }
+        }
+        return result;
+      };
+      console.log(bishBosh(100, 3, 4));
+    </script>
+  </body>
+</html>

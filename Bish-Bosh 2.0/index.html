@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bish-Bosh 2.0</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="container">
+      <h1>Bish-Bosh 2.0</h1>
+      <p>
+        Denna sida genererar en lista med tal från 1 upp till ett valfritt tal.
+        Om ett tal är jämnt delbart med det första angivna divisionstalet visas
+        'Bish'. Om det är jämnt delbart med det andra divisionstalet visas
+        'Bosh'. Är talet jämnt delbart med båda visas 'Bish-Bosh'. Syftet med
+        denna sida är att demonstrera klient-sidig funktionalitet med JavaScript
+        och skapa en interaktiv upplevelse.
+      </p>
+    </header>
+    <main class="container">
+      <section id="input-section">
+        <h3>Inställningar</h3>
+        <form>
+          <div>
+            <label for="loopEndValue">Slut på loop:</label>
+            <input type="number" id="loopEndValue" value="100" min="1" />
+          </div>
+          <div>
+            <label for="bishValue">Bish (ersätter tal delbart med):</label>
+            <input type="number" id="bishValue" value="3" min="1" />
+          </div>
+          <div>
+            <label for="boshValue">Bosh (ersätter tal delbart med):</label>
+            <input type="number" id="boshValue" value="4" min="1" />
+          </div>
+          <button type="button" id="startBishBosh">Starta Bish-Bosh</button>
+        </form>
+      </section>
+
+      <section id="output-section" aria-live="polite">
+        <h3>Resultat</h3>
+        <div id="result"></div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Bish Bosh 2.0. Webmaster: Iryna Chorna.</p>
+    </footer>
+
+    <script src="bishbosh.js"></script>
+  </body>
+</html>

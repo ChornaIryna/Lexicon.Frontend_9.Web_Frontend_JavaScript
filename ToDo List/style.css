@@ -1,0 +1,33 @@
+.list-group-item {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 1rem;
+}
+
+.list-group-item.purchased {
+  text-decoration: line-through;
+  background-color: #f0f8ff !important;
+  color: #888;
+}
+
+.delete-btn {
+  background: none;
+  border: none;
+  color: #dc3545;
+  font-size: 1em;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  margin-left: 0.5rem;
+  outline: none;
+}
+
+.delete-btn:hover,
+.delete-btn:focus {
+  color: #c82333;
+}
+
+.empty {
+  display: none;
+}
